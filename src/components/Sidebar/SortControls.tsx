@@ -18,7 +18,7 @@ export const SortControls: React.FC<Props> = ({ sortOption, onSortChange }) => (
         labelId="sort-label"
         label="Option"
         value={sortOption}
-        onChange={e => onSortChange(e.target.value as SortOption)}
+        onChange={event => onSortChange(event.target.value as SortOption)}
       >
         <MenuItem value="nameAsc">Name A → Z</MenuItem>
         <MenuItem value="nameDesc">Name Z → A</MenuItem>

@@ -4,7 +4,7 @@ import { Typography, FormGroup, FormControlLabel, Checkbox } from '@mui/material
 interface Props {
   categories: string[];
   selected: string[];
-  onChange: (cat: string, checked: boolean) => void;
+  onChange: (Category: string, checked: boolean) => void;
 }
 
 export const CategoryFilter: React.FC<Props> = ({ categories, selected, onChange }) => (
@@ -13,16 +13,16 @@ export const CategoryFilter: React.FC<Props> = ({ categories, selected, onChange
       Category
     </Typography>
     <FormGroup>
-      {categories.map(cat => (
+      {categories.map(Category => (
         <FormControlLabel
-          key={cat}
+          key={Category}
           control={
             <Checkbox
-              checked={selected.includes(cat)}
-              onChange={e => onChange(cat, e.target.checked)}
+              checked={selected.includes(Category)}
+              onChange={event => onChange(Category, event.target.checked)}
             />
           }
-          label={cat}
+          label={Category}
         />
       ))}
     </FormGroup>

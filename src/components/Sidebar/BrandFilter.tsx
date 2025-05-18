@@ -1,10 +1,43 @@
+// import React from 'react';
+// import { Typography, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
+
+// interface Props {
+//   brands: string[];
+//   selected: string[];
+//   onChange: (br: string, checked: boolean) => void;
+// }
+
+// export const BrandFilter: React.FC<Props> = ({ brands, selected, onChange }) => (
+//   <>
+//     <Typography variant="body2" sx={{ mt: 2, fontWeight: 'bold', mb: 0.5 }}>
+//       Brand
+//     </Typography>
+//     <FormGroup>
+//       {brands
+//         .filter(br => typeof br === 'string' && br.trim().length > 0)
+//         .map(br => (
+//           <FormControlLabel
+//             key={br}
+//             control={
+//               <Checkbox
+//                 checked={selected.includes(br)}
+//                 onChange={e => onChange(br, e.target.checked)}
+//               />
+//             }
+//             label={br}
+//           />
+//         ))}
+//     </FormGroup>
+//   </>
+// );
+
 import React from 'react';
 import { Typography, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 
 interface Props {
   brands: string[];
   selected: string[];
-  onChange: (br: string, checked: boolean) => void;
+  onChange: (brand: string, isChecked: boolean) => void;
 }
 
 export const BrandFilter: React.FC<Props> = ({ brands, selected, onChange }) => (
@@ -14,17 +47,17 @@ export const BrandFilter: React.FC<Props> = ({ brands, selected, onChange }) => 
     </Typography>
     <FormGroup>
       {brands
-        .filter(br => typeof br === 'string' && br.trim().length > 0)
-        .map(br => (
+        .filter(brand => typeof brand === 'string' && brand.trim().length > 0)
+        .map(brand => (
           <FormControlLabel
-            key={br}
+            key={brand}
             control={
               <Checkbox
-                checked={selected.includes(br)}
-                onChange={e => onChange(br, e.target.checked)}
+                checked={selected.includes(brand)}
+                onChange={event => onChange(brand, event.target.checked)}
               />
             }
-            label={br}
+            label={brand}
           />
         ))}
     </FormGroup>
